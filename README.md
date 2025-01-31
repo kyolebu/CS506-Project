@@ -1,4 +1,5 @@
 # CS506 Project – Police Overtime
+Contributors: Kyle Yu, Wyatt Napier
 
 ### Description
 The Boston Police Department (BPD) has an operating budget of $400 million and an in-depth analysis on how this budget spent is increasingly important. Over the years, there have been two sides to policing in this country. The first is a group of public safety servants protecting the neighborhood from bad faith actors, while the second is empowering individuals with the authority to impede someone else’s agency welcomes all kinds of bias into the management of public safety. Because of this, audits are careful analysis of budget spending, specifically overtime, are needed to ensure the equal power between the police and the community.
@@ -16,7 +17,7 @@ Spark provides the data:
 - 2025 City of Boston Operating Budget
 
 ### Modeling Data
-We plan on using clustering, regression, and decision trees in order to analyze trends in BPD budget spending. If time permits, we want to look into ML/DL techniques to further analyze. 
+We plan on using clustering, regression, and decision trees in order to analyze trends in BPD budget spending. We'll use libraries and frameworks like sklearn, matplotlib, and numpy.
 
 ### Visualzing Data
 We plan on using scatter plots to compare feature x to feature y, bar charts, heat maps, line graphs, confusion matrices. 
