@@ -1,5 +1,5 @@
 # CS506 Project – Police Overtime
-Contributors: Kyle Yu, Wyatt Napier
+Contributors: Kyle Yu, Wyatt Napier, Eric Nohara-LeClair
 
 ### Description
 The Boston Police Department (BPD) has an operating budget of $400 million and an in-depth analysis on how this budget spent is increasingly important. Over the years, there have been two sides to policing in this country. The first is a group of public safety servants protecting the neighborhood from bad faith actors, while the second is empowering individuals with the authority to impede someone else’s agency welcomes all kinds of bias into the management of public safety. Because of this, audits are careful analysis of budget spending, specifically overtime, are needed to ensure the equal power between the police and the community.
