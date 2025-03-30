@@ -64,8 +64,6 @@ for file in file_names:
     # Fill NaN values with 0 unless both total earnings and overtime are NaN
     df[total_column].fillna(0, inplace=True)
     df[overtime_column].fillna(0, inplace=True)
-    
-    # Drop rows where both total earnings and overtime are NaN (which is now impossible since we filled them with 0)
     df = df[~((df[total_column] == 0) & (df[overtime_column] == 0))]
     
     # Filter for Boston Police Department (BPD) data
@@ -80,10 +78,10 @@ for file in file_names:
             # Create a new category for matching titles
             bpd_data.loc[bpd_data[title_column].str.contains(keyword, case=False, na=False), 'TITLE_CATEGORY'] = title
     
-    # Prepare data for plotting for this year
-    year = file.split('-')[-1].split('.')[0]  # Extract the year from the file name
+
+    year = file.split('-')[-1].split('.')[0]  
     
-    # Create a plot for this year
+
     plt.figure(figsize=(10, 6))
     
     # Loop through each title category
@@ -98,21 +96,12 @@ for file in file_names:
         # Scatter plot for this title category
         plt.scatter([title] * len(overtime), overtime, label=title, alpha=0.5, s=8)
 
-    # Set plot title and labels
     plt.title(f"BPD: Overtime Pay by Title Category ({year})")
     plt.xlabel("Job Title")
     plt.ylabel("Overtime Pay ($)")
-
-    # Rotate x-axis labels for readability
     plt.xticks(rotation=45)
-
-    # Add a grid
     plt.grid(True)
-
-    # Add a legend
     plt.legend()
-
-    # Save the plot for the specific year
     plt.tight_layout()
     plt.savefig(f"./analysis/earnings/figures/plots/ot_title_plots/figure_bpd_overtime_by_title_{year}.png", dpi=300, bbox_inches="tight")
-    plt.close()  # Close the plot to avoid showing it immediately (useful when saving multiple plots)
+    plt.close()
