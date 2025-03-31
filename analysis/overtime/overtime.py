@@ -57,3 +57,45 @@ plt.title("Total Yearly Overtime Hours (2012-2022)")
 plt.grid(True)
 plt.savefig('./figures/total-overtime.png')
 plt.close()
+
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# Stacked Bar Plot: Yearly Trends by Rank
+rank_year_data = all_data.groupby(["Year", "RANK"])["OTHOURS"].sum().reset_index()
+rank_year_pivot = rank_year_data.pivot(index="Year", columns="RANK", values="OTHOURS")
+
+rank_year_pivot.plot(kind="bar", stacked=True, figsize=(12, 6), colormap="viridis")
+plt.title("Yearly Overtime Hours by Rank")
+plt.xlabel("Year")
+plt.ylabel("Total Overtime Hours")
+plt.legend(title="Rank")
+plt.grid(True)
+plt.tight_layout()
+plt.show()
+
+# Heatmap: Rank vs. Assignment vs. Hours
+rank_assignment_data = all_data.groupby(["Rank_Encoded", "Assigned_Encoded"])["OTHOURS"].sum().reset_index()
+rank_assignment_pivot = rank_assignment_data.pivot("Rank_Encoded", "Assigned_Encoded", "OTHOURS")
+
+plt.figure(figsize=(12, 8))
+sns.heatmap(rank_assignment_pivot, cmap="coolwarm", annot=True, fmt=".1f", cbar_kws={"label": "Total Overtime Hours"})
+plt.title("Heatmap of Overtime Hours by Rank and Assignment")
+plt.xlabel("Assigned Description (Encoded)")
+plt.ylabel("Rank (Encoded)")
+plt.tight_layout()
+plt.show()
+
+# Line Plot: Yearly Trends for a Specific Rank
+specific_rank_data = all_data[all_data["Rank_Encoded"] == 0]  # Example: Filtering for a specific rank
+yearly_hours = specific_rank_data.groupby("Year")["OTHOURS"].sum().reset_index()
+
+plt.figure(figsize=(10, 6))
+sns.lineplot(data=yearly_hours, x="Year", y="OTHOURS", marker="o", label="Rank 0")
+plt.title("Yearly Overtime Hours Trend for Rank 0")
+plt.xlabel("Year")
+plt.ylabel("Total Overtime Hours")
+plt.legend()
+plt.grid(True)
+plt.tight_layout()
+plt.show()
