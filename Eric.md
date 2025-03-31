@@ -6,7 +6,7 @@ Given previous overtime data, predict the amount of overtime paid for the next y
 
 ## Preliminary Data Visualizations
 
-![alt text](http://url/to/img.png)
+![Overtime Per Employee Distributions](./analysis/overtime/figures/pdfs/distributions.gif)
 
 ---
 
