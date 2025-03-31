@@ -45,10 +45,10 @@ def update(year):
     ax.set_ylim(0, max_density)  # Set consistent y-axis limits
     ax.legend()  # Show legend for mean and median
 
-ani = FuncAnimation(fig, update, frames=years, repeat=True, interval=1000)
+ani = FuncAnimation(fig, update, frames=years, repeat=True, interval=500)
 
 # Save the animation as an MP4 file
-output_path = "./figures/pdfs/distributions.gif"
+output_path = "./figures/pdfs/fast-distributions.gif"
 writer = 'pillow'
 ani.save(output_path, writer=writer)
 
