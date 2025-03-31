@@ -4,22 +4,39 @@ import matplotlib.pyplot as plt
 years = list(range(2012, 2023))
 totals = []
 avgs = []
-# rank_avgs = []
 
+# Loop through each year and load the corresponding CSV file
 for year in years:
-    df = pd.read_csv(f"../../data/overtime/{year}.csv")
+    try:
+        # Load the CSV file for each year into a DataFrame
+        df = pd.read_csv(f"../../data/overtime/{year}.csv")  # Adjust path if needed
+        
+        # Check if 'OTDATE' column exists
+        if 'OTDATE' in df.columns:
+            # Convert OTDATE to datetime format
+            df['OTDATE'] = pd.to_datetime(df['OTDATE'])
+        else:
+            print(f"Warning: 'OTDATE' column not found in {year}.csv")
+            continue  # Skip to the next year if 'OTDATE' column is missing
+        
+        # Calculate total overtime per employee by grouping by "ID"
+        total_ot_per_employee = df.groupby("ID")["OTHOURS"].sum()
 
-    total_ot_per_employee = df.groupby("ID")["OTHOURS"].sum()
-    avg_employee_ot = total_ot_per_employee.mean()
-    avgs.append(avg_employee_ot)
+        # Calculate the average overtime hours per employee for the current year
+        avg_employee_ot = total_ot_per_employee.mean()
+        avgs.append(avg_employee_ot)
 
-    # total_ot_per_rank = df.groupby("RANK")["OTHOURS"].sum()
-    # avg_rank_ot = 
+        # Calculate total overtime hours for the current year
+        total_ot = df["OTHOURS"].sum()
+        totals.append(total_ot)
 
-    total_ot = df["OTHOURS"].sum()
-    totals.append(total_ot)
-
-    print(f"Average Overtime Hours Per Employee in Year {year}: {avg_ot}")
+        # Print average overtime for this year
+        print(f"Average Overtime Hours Per Employee in Year {year}: {avg_employee_ot}")
+        
+    except FileNotFoundError:
+        print(f"Error: File for year {year} not found. Please check the file path.")
+    except Exception as e:
+        print(f"Error processing file for year {year}: {e}")
 
 # Average overtime plot
 plt.figure(figsize=(10, 5))
