@@ -32,7 +32,7 @@ def update(year):
     median = np.median(data[year])
 
     # Plot histogram
-    ax.hist(data[year], bins=20, density=True, edgecolor='black', alpha=0.7)
+    ax.hist(data[year], bins=50, density=True, edgecolor='black', alpha=0.7)
     ax.axvline(mean, color='red', linestyle='dashed', linewidth=2, label=f"Mean: {mean:.2f}")
     ax.axvline(median, color='green', linestyle='dashed', linewidth=2, label=f"Median: {median:.2f}")
 

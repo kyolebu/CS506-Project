@@ -4,9 +4,31 @@ Given previous overtime data, predict the amount of overtime paid for the next y
 
 ---
 
-## Preliminary Data Visualizations
+## Overtime Per Employee Distributions
 
 ![Overtime Per Employee Distributions](./analysis/overtime/figures/pdfs/distributions.gif)
+
+### Goal
+
+Find the distributions of overtime per employee and how they differ over the last 10 years to see if there are any trends/outliers
+
+### Data Processing
+
+- Load data from 2012 - 2022 CSV files, grouping by employee ID
+- Determine X and Y axis limits for global scaling for the final animation
+
+## Data Modeling Method
+
+- Histogram based distribution modeling
+  - 50 bins
+  - Normalized to represent a PDF
+- Added mean and medians to each graph
+- Used FuncAnimation to animate the changes in probability distributions across years for better visualization
+
+---
+
+## Preliminary Data Visualizations
+
 ![Predicted Average Overtime Per Employee 2023](./analysis/overtime/figures/predicted-avg-overtime-per-employee-2025.png)
 ![Predicted Total Overtime 2023](./analysis/overtime/figures/predicted-total-overtime-2025.png)
 ![Regression Heatmap 2023](./analysis/overtime/figures/regression/heatmap.png)
@@ -17,7 +39,7 @@ Given previous overtime data, predict the amount of overtime paid for the next y
 
 ## Description of Data Processing
 
----
+- ***
 
 ## Description of Data Modeling Methods
 
