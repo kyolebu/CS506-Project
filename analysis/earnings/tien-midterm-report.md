@@ -24,6 +24,7 @@ The Boston Police Department (BPD) budget has undergone various changes over the
 ![image](https://github.com/user-attachments/assets/bca15919-2aba-45c4-b6eb-804b0e66f873)
 **Takeaways**
 - BPD has the strongest increasing trend overall and in overtime pay.
+- BPP overtime pay amount and rate of increase are also the largest.
 
 ## Future Work
 - Identifying which overtime events consume the most budget (e.g., court appearances, holidays, Christmas, etc.). Identify other relevant aspects of BPD budget allocation that also see a strong increase (retro pay, etc.) and compare them to other departments.
