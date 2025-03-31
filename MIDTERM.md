@@ -96,7 +96,7 @@ Given previous overtime data, predict the amount of overtime paid for the next y
 ## Overtime Per Employee Distributions
 
 ![Overtime Per Employee Distributions](./analysis/overtime/figures/pdfs/distributions.gif)
-![2018 Outlier](./analysis/overtime/figures/pdfs/outlier.png)
+![2018 Outlier](./analysis/overtime/figures/pdfs/outlier_with_std.png)
 
 ### Goal
 
