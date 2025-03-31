@@ -4,6 +4,8 @@
 
 ---
 
+# Midterm Project Report: Wyatt
+
 ## Preliminary Data Visualizations
 
 ![Gender Distribtuion](./analysis/roster/figures/gender_distribution.png)
