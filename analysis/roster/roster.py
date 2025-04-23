@@ -258,18 +258,18 @@ def plot_interactive_hrly_vs_annual_rate():
     fig.show()
 
 ### running code:
+if __name__ == "__main__":
+       ### read csv
+       df = pd.read_csv(f"../../data/roster/bpd-roster-2020.csv")
+       print(df.head()) # prior to preprocessing
+       df = preprocess(df)
+       print(df.head()) # after preprocessing
 
-### read csv
-df = pd.read_csv(f"../../data/roster/bpd-roster-2020.csv")
-print(df.head()) # prior to preprocessing
-df = preprocess(df)
-print(df.head()) # after preprocessing
-
-### plots
-plot_ethnic_grp_dist()
-plot_gender_dist()
-plot_job_title_vs_annual_rt_vs_gender()
-plot_job_title_vs_rates_combined()
-plot_job_title_vs_rates_seperate()
-plot_rate_comparison()
-plot_interactive_hrly_vs_annual_rate()
+       ### plots
+       plot_ethnic_grp_dist()
+       plot_gender_dist()
+       plot_job_title_vs_annual_rt_vs_gender()
+       plot_job_title_vs_rates_combined()
+       plot_job_title_vs_rates_seperate()
+       plot_rate_comparison()
+       plot_interactive_hrly_vs_annual_rate()
