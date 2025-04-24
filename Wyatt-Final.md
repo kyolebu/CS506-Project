@@ -12,4 +12,4 @@
 
 ### Next steps
 
-- still need to build the decision tree about pay level (maybe just focus on overtime pay amount since that is focus of project)
+- play with decision tree to find interesting splits

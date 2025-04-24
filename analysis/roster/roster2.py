@@ -2,12 +2,12 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 from pathlib import Path
+import plotly.express as px
 from roster import preprocess as preprocess_roster
 from roster import plot_ethnic_grp_dist
 from roster import plot_gender_dist
 import sys
 import os
-import plotly.express as px
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from earnings.utils import load_earnings_data
@@ -60,6 +60,28 @@ def create_top_earners_chart(df, year):
     output_dir.mkdir(exist_ok=True)
     plt.savefig(output_dir / f'top_earners_{year}.png', bbox_inches='tight', dpi=300)
     print(f"\nPlot saved as 'top_earners_{year}.png' in {output_dir}")
+
+# Normalize roster_df name columns
+def preprocess_and_merge(n, roster_df, police_df):
+    roster_df['Last'] = roster_df['Last'].str.strip().str.upper()
+    roster_df['First Name'] = roster_df['First Name'].str.strip().str.upper()
+
+    # Get top earners' name columns
+    top_n = police_df.nlargest(n, 'TOTAL GROSS').copy()
+
+    # Split and normalize names
+    top_n[['Last', 'First Name']] = top_n['NAME'].str.split(',', expand=True)
+    top_n['Last'] = top_n['Last'].str.strip().str.upper()
+    top_n['First Name'] = top_n['First Name'].str.strip().str.split().str[0].str.upper()
+
+    # Merge on normalized names
+    top_n_with_roster_df = pd.merge(
+        top_n,
+        roster_df,
+        on=['Last', 'First Name'],
+        how='left' # keep the top 100 even if roster_df is NA?
+    )
+    return top_n_with_roster_df
 
 def plot_income_ranking_with_demographics(df: pd.DataFrame, title: str = "Top 100 Earners by Income Ranking", filename: str = "top_100_income_ranking.html"):
     """
@@ -182,25 +204,8 @@ if __name__ == "__main__":
 
 
         ### data analysis for top 100
-        # Normalize roster_df name columns
-        roster_df['Last'] = roster_df['Last'].str.strip().str.upper()
-        roster_df['First Name'] = roster_df['First Name'].str.strip().str.upper()
+        top_100_with_roster_df = preprocess_and_merge(100, roster_df, police_df)
 
-        # Get top earners' name columns
-        top_100 = police_df.nlargest(100, 'TOTAL GROSS').copy()
-
-        # Split and normalize names
-        top_100[['Last', 'First Name']] = top_100['NAME'].str.split(',', expand=True)
-        top_100['Last'] = top_100['Last'].str.strip().str.upper()
-        top_100['First Name'] = top_100['First Name'].str.strip().str.split().str[0].str.upper()
-
-        # Merge on normalized names
-        top_100_with_roster_df = pd.merge(
-            top_100,
-            roster_df,
-            on=['Last', 'First Name'],
-            how='left' # keep the top 100 even if roster_df is NA?
-        )
         plot_gender_dist(top_100_with_roster_df, "top_100_gender_distribution") # from roster.py
         plot_ethnic_grp_dist(top_100_with_roster_df, "top_100_ethnic_group_distribution") # from roster.py
         plot_income_ranking_with_demographics(top_100_with_roster_df) # from earlier function
