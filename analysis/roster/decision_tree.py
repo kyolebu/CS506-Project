@@ -31,7 +31,7 @@ if __name__ == "__main__":
     # Features to use for prediction
     # feature_cols = ['REGULAR', 'OVERTIME', 'DETAIL', 'QUINN_EDUCATION', 'INJURED', 'RETRO', 'OTHER', 'Sex_M', 'Ethnic Grp_BLACK', 'Ethnic Grp_HISPA', 'Ethnic Grp_WHITE', 'Ethnic Grp_ASIAN'] # everything possible
     # feature_cols = ['REGULAR', 'OVERTIME','Sex_M', 'Ethnic Grp_BLACK', 'Ethnic Grp_HISPA', 'Ethnic Grp_WHITE', 'Ethnic Grp_ASIAN'] # demographic info + minimal pay
-    feature_cols = ['Sex_M', 'Ethnic Grp_BLACK', 'Ethnic Grp_HISPA', 'Ethnic Grp_WHITE', 'Ethnic Grp_ASIAN'] # most minimal set, just demogrpahic info
+    feature_cols = ['Sex_M', 'Ethnic Grp_BLACK', 'Ethnic Grp_HISPA', 'Ethnic Grp_WHITE', 'Ethnic Grp_ASIAN', 'Job Title Encoded'] # most minimal set, just demogrpahic info
     X = merged_df[feature_cols].copy()
     y = merged_df['High_Earner']
 
@@ -55,5 +55,5 @@ if __name__ == "__main__":
     output_dir = Path(__file__).parent / 'EDA'
     output_dir.mkdir(exist_ok=True)
     plt.savefig(output_dir / f'top_earners_decision_tree{2020}.png', bbox_inches='tight', dpi=300) # comment out when don't want saved
-    
+
     plt.show()
