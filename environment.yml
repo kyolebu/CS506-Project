@@ -14,6 +14,8 @@ dependencies:
   - vc=14.42
   - vs2015_runtime=14.42.34433
   - wheel=0.45.1
+  - jupyter
+  - geopandas==0.14.3
   - pip:
       - blinker==1.9.0
       - certifi==2025.4.26
@@ -58,4 +60,5 @@ dependencies:
       - urllib3==2.4.0
       - werkzeug==3.0.6
       - zipp==3.21.0
+      - folium==0.16.0
 prefix: C:\Users\ericn\anaconda3\envs\myenv
