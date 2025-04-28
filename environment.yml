@@ -4,6 +4,7 @@ channels:
   - https://repo.anaconda.com/pkgs/main
   - https://repo.anaconda.com/pkgs/r
   - https://repo.anaconda.com/pkgs/msys2
+  - conda-forge
 dependencies:
   - ca-certificates=2025.2.25
   - openssl=3.0.16
