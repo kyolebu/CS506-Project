@@ -93,43 +93,119 @@ In general, I saw that there is a large issue of pay inequity in the Boston Poli
 
 # Final Project Report: Tien
 
-## Introduction
+## Primary Analysis and Data Exploration: 
 
-The Boston Police Department (BPD) budget has undergone various changes over the years. This project aims to analyze how the budget is allocated and spent, with a specific interest in overtime pay.
+**Figure 1**:
 
-## Figures and Results:
+*Description*: This chart displays the total annual earnings of the Boston Police Department (BPD) from 2011 to 2024. The y-axis represents total earnings in dollars, and the x-axis shows the years. A blue line with markers tracks changes over time, highlighting trends in BPD compensation.
 
 ![image](https://github.com/user-attachments/assets/3979076b-61ac-4215-ba2c-2b166afaf583)
-**Takeaways**
 
-- The BPS budget saw approximately 30% increase in 2024.
+*Takewaway*: 
+
+- Steady Growth (2011–2018):
+Total earnings rose consistently from around $290 million in 2011 to about $420 million in 2018, indicating increasing payroll and/or staffing.
+
+- Stagnation and Slight Decline (2019–2022):
+Earnings plateaued around $420–$430 million, with minor fluctuations. This may suggest budget caps, hiring freezes, or reduced overtime.
+
+- Sharp Spike in 2024:
+The most dramatic change is the spike to nearly $570 million in 2024—a sudden ~35% increase from 2023. This could reflect new contracts, major overtime events, or structural changes to payroll.
+
+- COVID-Era Impact (2020–2022):
+The mild drop from 2020 through 2022 might be tied to the pandemic’s fiscal or operational effects.
+
+**Figure 2**:
+
+*Description*: This stacked bar chart breaks down the Boston Police Department’s total earnings from 2011 to 2024 by different categories of compensation. Each bar represents a year, and each colored segment corresponds to a type of earning:
+
+- REGULAR (blue): Base salary or standard pay
+- OVERTIME (red): Pay for hours beyond regular shifts
+- DETAIL (cyan): Special duty or private detail assignments
+- RETRO (orange): Retroactive pay
+- INJURED (purple): Earnings for injured officers
+- OTHER (green): Miscellaneous compensation
+- QUINN (pink): Quinn Bill incentives for education
 
 ![image](https://github.com/user-attachments/assets/3de633f3-40d8-4979-95b6-c6dd5c972b41)
-**Takeaways**
 
-- To identify the areas from which the increase comes, I look at the breakdown of the BPD budget from 2011 to 2024. There are major increases in regular pay, overtime pay, and retro pay.
+*Takeaways*
+
+- Regular Pay Dominates:
+Across all years, regular earnings form the largest share of total compensation, showing a consistent upward trend.
+
+- Overtime is Substantial:
+Overtime pay is the second-largest component, especially notable in 2024, where it sharply increases. It appears to be a major cost driver in total earnings.
+
+- Spike in 2024 Driven by Multiple Factors:
+The 2024 spike (seen in the previous chart too) is due to not just overtime, but also large increases in retro, detail, and regular pay — suggesting back pay, increased staffing, or operational changes.
+
+- Retroactive Pay Varies Significantly:
+Retro pay appears sporadically but surges in 2014, 2016, and especially in 2024 — possibly tied to delayed contract settlements or pay corrections.
+
+- Detail Pay is Consistently High:
+This segment remains prominent in most years and grows again in 2024. This may reflect continued or increased use of officers for private or city-paid details.
+
+- COVID-Era Patterns (2020–2022):
+During the pandemic years, most components, including detail and injured pay, saw modest increases or stability, despite wider uncertainties.
+
+**Figure 3**:
+
+*Description*: This line chart shows total annual earnings from 2011 to 2022 for four Boston city departments:
+
+- BPD (Police Department) – blue
+- BFD (Fire Department) – red
+- BPL (Public Library) – green
+- BPS (Public Schools) – purple
+
+The y-axis represents total earnings in dollars, and each line represents a department's payroll trends over time.
 
 ![image](https://github.com/user-attachments/assets/00cc76c2-f6c2-459a-a773-26fe376accb0)
-**Takeaways**
 
-- The BPS budget drop in 2014 is a significant one.
+
+*Takeaway*: 
+
+- BPS (Schools) Has the Largest Budget: The Boston Public Schools (BPS) consistently spends the most on earnings, peaking around $690 million in 2013, dropping significantly in 2014, and then gradually climbing back toward $620 million by 2022.
+- BPL (Libraries) Has the Smallest Earnings: The library system maintained a modest and relatively flat earnings curve, ranging between $20–30 million annually, indicating a smaller workforce or lower wage structure.
 - BPD and BFD both had steady increases in budget, yet BFD did not see a 30% increase like BPD in 2024, as shown in the first figure.
-- BPL funding remained relatively low and stable compared to other departments.
+- BPL funding remained relatively low compared to other departments.
+- Overall, BPD witnessed the most growth.
 
-![image](https://github.com/user-attachments/assets/4c01b001-f0cb-4a64-b662-432f4f37c62a)
+**Figure 4**:
+
+*Description*: This scatter plot shows the relationship between total earnings and overtime pay in 2021 for employees of three Boston departments:
+
+- Boston Police Department (BPD) – blue
+
+- Boston Fire Department (BFD) – red
+
+- Boston Public Schools (BPS) – purple
+
+Each dot represents an individual employee. Trend lines are overlaid for each department to show the general relationship between total pay and overtime.
+
 ![image](https://github.com/user-attachments/assets/bca15919-2aba-45c4-b6eb-804b0e66f873)
-**Takeaways**
 
-- BPD has the strongest increasing trend overall and in overtime pay.
-- BPP overtime pay amount and rate of increase are also the largest.
+*Takeaways*
 
-## Future Work
+- Police Employees Receive the Highest Overtime at High Earnings:
+BPD employees (blue) show the strongest upward trend—as total earnings rise, overtime pay increases sharply. Some individuals exceed $150,000 in overtime alone, a much steeper slope than BFD or BPS.
 
-- Identifying which overtime events consume the most budget (e.g., court appearances, holidays, Christmas, etc.). Identify other relevant aspects of BPD budget allocation that also see a strong increase (retro pay, etc.) and compare them to other departments.
-- **Linear Regression:** Predict the amount of overtime paid for the next year based on historical trends.
-- **Maximum Likelihood Estimation (MLE):** Estimate key parameters related to budget distribution.
-- **Clustering Methods:** Identify patterns in overtime spending based on location and event types.
-- **Geospatial Analysis:** Map incidents to show where the highest concentration of overtime-inducing events occur.
+- Fire Department Also Shows Strong Overtime Dependency:
+BFD employees (red) follow a similar pattern, though their overtime is less extreme than BPD. Their trend line rises more moderately, with fewer outliers beyond $100,000.
+
+- BPS Has Minimal Overtime Impact:
+BPS employees (purple) cluster low on the y-axis, showing minimal overtime pay even at higher earnings. Their trend line is nearly flat, indicating little correlation between overtime and total earnings.
+
+- Overtime Disparities Are Clear:
+The distribution and slope differences between departments illustrate how differently overtime is used across the city—BPD appears to rely most heavily on it as a compensation mechanism.
+
+**Overall**:
+
+Across multiple views of Boston city department payroll data, it's clear that the Boston Police Department (BPD) stands out for its significant and growing reliance on overtime pay. From 2011 to 2024, BPD earnings have risen steadily, with a dramatic spike in 2024 driven not only by regular wages but also by surging overtime, retroactive pay, and detail compensation. Compared to other departments like Fire (BFD), Schools (BPS), and Libraries (BPL), the police department consistently incurs higher earnings, particularly through overtime-intensive compensation structures.
+
+A closer look at individual-level data (2021) confirms this trend: BPD employees often earn substantial portions of their income from overtime, with many surpassing $100,000 in OT alone—well above the norms in other departments. This heavy dependence on overtime may reflect staffing shortages, scheduling inefficiencies, or structural budget practices that prioritize variable pay over base salaries.
+
+## Further analysis: 
 
 ---
 
