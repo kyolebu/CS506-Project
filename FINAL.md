@@ -28,14 +28,6 @@ conda activate myenv
 
 # Final Project Report: Wyatt
 
-## Data Visualizations
-
-![Gender Distribtuion](./analysis/roster/figures/gender_distribution.png)
-![Ethnic Group Distribtuion](./analysis/roster/figures/ethnic_group_distribution.png)
-![Job Title Vs Annual Rate](./analysis/roster/figures/job_title_vs_annual_rt_by_gender.png)
-![Job Title Vs Rates Combined](./analysis/roster/figures/job_title_vs_rates_seperate.png)
-![Rate Comparison](./analysis/roster/figures/rate_comparison.png)
-
 ## Description of Data Processing
 
 For the roster data, there were many categorical columns which I then one-hot encoded such as 'Sex' and 'Ethnic Grp'. I used the pandas get dummies function to do so. After that, I continued on to encode the job titles. There were at least 9 different rankings of officers that were clear from observing the data:
@@ -53,19 +45,49 @@ For the roster data, there were many categorical columns which I then one-hot en
 
 However, one limitation of this method of grouping the job titles is that there were more specific listings under "Police Officer" which leads to a larger variation in pay, even though Police Officer is the lowest ranking.
 
+I also used the earnings data from 2020, which matched the year of the roster data, and by merging these two datasets on the cleaned names of employees I was able to extract demographic information about the top earners at the BPD. For that earning data to be useful, I used Tien's preprocessing to extract just the BPD employees.
+
 I also calculated the amount of time that the each person has been employed at the time of the sheet's creation by calculating the difference between the 'Eff Date' column and 'As Of' column, but this yielded results that had very little variation so it seemed that it wouldn't add much to our investigation of the dataset.
 
 ## Description of Data Modeling Methods
 
-For my initial visualizations, most of my data modeling methods aimed to capture the relationships between features within the BPD roster data using matplotlib. I was also able to use plotly to generate interactive plots where you can hover over each datapoint to ascertain more information about that person such as their ethnicity and specific job title.
+For my initial visualizations, most of my data modeling methods aimed to capture the relationships between features within the BPD roster data using matplotlib. I was also able to use plotly to generate interactive plots where you can hover over each datapoint to ascertain more information about that person such as their ethnicity and specific job title. Finally, I also generated a decision tree as a more interpretable method of inspecting who qualifies as a high earner based on their demographics and job title.
 
-## Results
+## Data Visualizations
 
-From my visualizatioins, I observed that the BPD primarily consists of white men. Then, I was able to deduce that, although hourly rate and montly rate are linearly correlated, annual rate isn't. This was particularly interesting to note when plotted across with job titles on the x axis, because surprisingly, those that made the most annually weren't the highest ranking. In fact, some of them were police officers. Additonally, it seems that women are making less than men.
+![Gender Distribtuion](./analysis/roster/figures/gender_distribution.png)
+![Top 100 Earners Gender Distribution](./analysis/roster/figures/top_100_gender_distribution.png)
 
-## Next steps
+#### Takeaways
 
-In the future, I want to try to implement Decision Trees to predict an employee's annual income. From this, we will have an easily intererpretable model for the characteristics of employees that have an annual income within a specific bucket. I also want to take a deeper dive into the additional sources of income besides hourly or monthly rate that is boosting the annual rate of some of these specific employees.
+Although 86.2\% of the Boston Police Department is male, 96 of the 100 top earners are male. This showcases very obvious gender pay inequity among the top earners, which may be exacerbated by the imbalance in gender representation in the BPD.
+
+![Ethnic Group Distribtuion](./analysis/roster/figures/ethnic_group_distribution.png)
+![Top 100 Earners Ethnic Group Distribtuion](./analysis/roster/figures/top_100_ethnic_group_distribution.png)
+
+#### Takeaways
+
+Here, white people make up 65% of the overall police force, but interestingly, they only represent 57% of the top earners. Instead, top earning Black members of the BPD outshine their representation within the overall police department. However, Asian and Hispanic members of the BPD still suffer as the most marginalized communities.
+
+<!-- ![Job Title Vs Annual Rate](./analysis/roster/figures/job_title_vs_annual_rt_by_gender.png) -->
+
+![Job Title Vs Rates Combined](./analysis/roster/figures/job_title_vs_rates_seperate.png)
+
+<!-- ![Rate Comparison](./analysis/roster/figures/rate_comparison.png) -->
+
+#### Takeaways
+
+Although income rates with respect to job titles have the smae relationship in both hourly and monthly timeframe, they differ greatly with respect to annual income which leads me to believe that there is something fishy going on with other sources of income besides standard rate.
+
+![High Earner Decision Tree](./analysis/roster/EDA/top_earners_decision_tree2020.png)
+
+#### Takeaways
+
+As you might expect, those with higher ranking (and thus have lower job title index, which you can see above) are more likely to be high earners, which is captured by the root node as well as the left node in the second layer. Also, the right node in the second layer shows that if you are a woman (Sex_M $\leq 0.5$) then you are more likely to be classified as a low earner than a man of a similar position who may be a high earner.
+
+## Overall Results
+
+In general, I saw that there is a large issue of pay inequity in the Boston Police Department and that women are often simply making less than men. Interestingly, there seems to be less inequity with regard to ethnicity of employees. On top of this, as my teammates will explore shortly, there are also some suspicious activities with regard to other sources of income besides base hourly/monthly rate.
 
 ---
 
