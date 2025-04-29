@@ -190,7 +190,7 @@ Predict total overtime hours for different officer ranks and task assignments in
 ![Overtime Earnings/Total Earnings Ratio by Department over 10 years](./analysis/overtime/figures/department/overtime-earnings-ratio.png)
 ![Top Overtime Earnings/Total Earnings Ratio by Department over 10 years](./analysis/overtime/figures/department/overtime-earnings-ratio-top.png)
 ![Top Total Overtime Earnings by Department over 10 years](./analysis/overtime/figures/department/total-overtime-top.png)
-![Bottom Total Overtime Earnings by Department over 10 years](./analysis/overtime/figures/department/overtime-earnings-ratio-bottom.png)
+![Bottom Total Overtime Earnings by Department over 10 years](./analysis/overtime/figures/department/total-overtime-bottom.png)
 
 ### Goal
 
