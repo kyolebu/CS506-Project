@@ -54,26 +54,26 @@ def preprocess(df):
        return df
 
 ### data analysis -- gender distribution
-def plot_gender_dist():
+def plot_gender_dist(df, title):
        labels = ['Male', 'Female']
        male_count = sum(df['Sex_M'] == True)
        sizes = [male_count, df.shape[0] - male_count]
        fig, ax = plt.subplots()
        ax.pie(sizes, labels=labels, autopct='%1.1f%%',
               pctdistance=1.25, labeldistance=.6)
-       plt.title('Gender Percentages')
-       # plt.savefig('./figures/gender_distribution.png') # only uncomment when you want to save figure
+       plt.title(title)
+       # plt.savefig(f'./figures/{title}.png')# only uncomment when you want to save figure
        plt.show()
 
 ### data analysis -- ethnic group
-def plot_ethnic_grp_dist():
+def plot_ethnic_grp_dist(df, title):
        labels = ['Asian', 'White', 'Hispanic', 'Black']
        sizes = [sum(df['Ethnic Grp_ASIAN'] == True), sum(df['Ethnic Grp_WHITE'] == True), sum(df['Ethnic Grp_HISPA'] == True), sum(df['Ethnic Grp_BLACK'] == True)]
        fig, ax = plt.subplots()
        ax.pie(sizes, labels=labels, autopct='%1.1f%%',
               pctdistance=1.25, labeldistance=.6)
        plt.title('Ethnic Group Percentages')
-       # plt.savefig('./figures/ethnic_group_distribution.png') # only uncomment when you want to save figure
+       # plt.savefig(f'./figures/{title}.png') # only uncomment when you want to save figure
        plt.show()
 
 ### data analysis -- annual rate and ethnic group (maybe add sex as color)
@@ -258,18 +258,18 @@ def plot_interactive_hrly_vs_annual_rate():
     fig.show()
 
 ### running code:
+if __name__ == "__main__":
+       ### read csv
+       df = pd.read_csv(f"../../data/roster/bpd-roster-2020.csv")
+       print(df.head()) # prior to preprocessing
+       df = preprocess(df)
+       print(df.head()) # after preprocessing
 
-### read csv
-df = pd.read_csv(f"../../data/roster/bpd-roster-2020.csv")
-print(df.head()) # prior to preprocessing
-df = preprocess(df)
-print(df.head()) # after preprocessing
-
-### plots
-plot_ethnic_grp_dist()
-plot_gender_dist()
-plot_job_title_vs_annual_rt_vs_gender()
-plot_job_title_vs_rates_combined()
-plot_job_title_vs_rates_seperate()
-plot_rate_comparison()
-plot_interactive_hrly_vs_annual_rate()
+       ### plots
+       plot_ethnic_grp_dist(df, "ethnic_group_distribution")
+       plot_gender_dist(df, "gender_distribution")
+       plot_job_title_vs_annual_rt_vs_gender()
+       plot_job_title_vs_rates_combined()
+       plot_job_title_vs_rates_seperate()
+       plot_rate_comparison()
+       plot_interactive_hrly_vs_annual_rate()
