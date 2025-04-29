@@ -176,6 +176,7 @@ Predict total overtime hours for different officer ranks and task assignments in
 - Convert OTDATE to a datetime object
 - Encode categorical variables (RANK and ASSIGNED_DESC) using LabelEncoder
 - Saved categorical variable mappings for ASSIGNED_DESC in ./analysis/overtime/csv/assigned_mapping_key.csv
+- NOTE: use this key when interpreting the heat map
 
 ### Data Modeling
 
@@ -184,16 +185,38 @@ Predict total overtime hours for different officer ranks and task assignments in
 - Train Model: Use Random Forest Regressor on data from 2012–2022
 - Inputted all possible combinations of officer rank and officer assignment into the trained model
 
+## Department Overtime Analysis
+
+![Overtime Earnings/Total Earnings Ratio by Department over 10 years](./analysis/overtime/figures/department/overtime-earnings-ratio.png)
+![Top Overtime Earnings/Total Earnings Ratio by Department over 10 years](./analysis/overtime/figures/department/overtime-earnings-ratio-top.png)
+![Top Total Overtime Earnings by Department over 10 years](./analysis/overtime/figures/department/total-overtime-top.png)
+![Bottom Total Overtime Earnings by Department over 10 years](./analysis/overtime/figures/department/overtime-earnings-ratio-bottom.png)
+
+### Goal
+
+Find any relationships between department and overtime earnings over the last 10 years in order to better understand how to allocate the overtime budget to different departments.
+
+### Data Processing
+
+- Reformat CSV files for earnings with consistent column headers
+- Load yearly earnings CSV files in /data/earnings-reformatted
+- Combine yearly data from the last 10 years
+- Reformat all numeric columns in the earnings data to turn strings of the format "$1,000,000" into numeric values
+- Group by department and find total earnings and overtime earnings / total earnings ratio for each department
+
 ## Results
 
 - We see 2018 is statistically an outlier in terms of average overtime per employee
 - Otherwise, we see the mean overtime per employee per year hovers around 53.91 hours with a standard deviation of 7.82
 - Excluding the outlier year, the distributions of overtime per employee per year is relatively stable
 - The linear regression data suggests a slight increase in overtime hours in 2023, 2024, and 2025
+  - We can expect around 140,000 - 150,000 overtime hours in the near future
   - 2018 data may skew the model
   - Accuracy may be lower due to small sample size of 10 years
 - The Ramdom Forest Regression model suggests that patrol rank officers take the majority of the overtime hours while the LtDet rank officers take the least overtime
-- The heatmap suggests that Districts 01 - 18 were the task assgnments which caused the highest levels of overtime across different police ranks
+- The heatmap suggests that Districts 01 - 18 were the task assgnments which caused the highest levels of overtime across different police ranks, with District 4 in particular contributing the most to overtime hours across police ranks
+- Most departments do not earn significant amounts of their total earnings from overtime, with most departments earning less than $10,000,000 in total overtime over the last 10 years
+- BPD, Boston Fire Department, and Public Works were among the top overtime earners across all departments, with BPD in particular earning more than double the second highest earner, with almost $1,000,000,000 over the last 10 years
 
 ---
 
