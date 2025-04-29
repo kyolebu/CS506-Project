@@ -148,7 +148,7 @@ if __name__ == "__main__":
         df = load_earnings_data(year)
         police_df = df[df['DEPARTMENT_NAME'].str.contains('POLICE', case=False, na=False)].copy()
         print('police df:', police_df.head())
-        roster_df = preprocess_roster(pd.read_csv(f"../../data/roster/bpd-roster-2020.csv"))
+        roster_df = preprocess_roster(pd.read_csv(f"./data/roster/bpd-roster-2020.csv"))
         
         # Ensure all numeric columns are properly converted
         components = ['REGULAR', 'OVERTIME', 'DETAIL', 'QUINN_EDUCATION', 'INJURED', 'RETRO', 'OTHER', 'TOTAL GROSS']

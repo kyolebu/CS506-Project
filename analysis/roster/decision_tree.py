@@ -18,7 +18,7 @@ if __name__ == "__main__":
     # Load and prepare data
     df = load_earnings_data(2020)
     police_df = df[df['DEPARTMENT_NAME'].str.contains('POLICE', case=False, na=False)].copy()
-    roster_df = preprocess_roster(pd.read_csv("../../data/roster/bpd-roster-2020.csv"))
+    roster_df = preprocess_roster(pd.read_csv("./data/roster/bpd-roster-2020.csv"))
     merged_df = preprocess_and_merge(22000, roster_df, police_df).copy()
 
     # Drop rows without earnings or demographic info

@@ -254,13 +254,13 @@ def plot_interactive_hrly_vs_annual_rate():
     fig.add_scatter(x=x_vals, y=y_vals, mode='lines', name='Trendline', line=dict(color='green'))
 
     fig.update_layout(legend_title_text='Gender')
-    fig.write_html('./figures/interactive_hrly_vs_annual_rate.html')
+#     fig.write_html('./figures/interactive_hrly_vs_annual_rate.html')
     fig.show()
 
 ### running code:
 if __name__ == "__main__":
        ### read csv
-       df = pd.read_csv(f"../../data/roster/bpd-roster-2020.csv")
+       df = pd.read_csv(f"./data/roster/bpd-roster-2020.csv")
        print(df.head()) # prior to preprocessing
        df = preprocess(df)
        print(df.head()) # after preprocessing
