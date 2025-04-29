@@ -282,9 +282,11 @@ The overtime isn’t just isolated to one or two teams; it spans a broad swath o
 *Description*: This horizontal bar chart identifies the top ZIP codes in Boston with the most high-risk police field contacts, providing a spatial view of where officers are most likely to encounter volatile or potentially dangerous interactions.
 
 ![image](https://github.com/user-attachments/assets/c360b921-481d-460d-a197-1b656787a052)
+
 *Figure 1*
 
 ![image](https://github.com/user-attachments/assets/b09d49fe-9c61-4489-8470-7292f3cfd6cd)
+
 *Figure 2*
 
 *Takeaways*: 
@@ -306,9 +308,11 @@ While the top few ZIPs exceed 600–700 contacts, the bottom half of the list se
 These two maps offer a powerful spatial synthesis: areas with the highest number of high-risk police contacts closely align with districts logging the most court-related overtime hours—most notably in District 4 (D4) and neighboring zones.
 
 ![image](https://github.com/user-attachments/assets/7f1b2acb-1f73-4c74-af34-3d533a3cdeb3)
+
 *Figure 3*
 
 ![image](https://github.com/user-attachments/assets/6bb6e9b6-2cf4-43b3-bea5-424588ec5b0e)
+
 *Figure 4*
 
 *Takeaways*: 
