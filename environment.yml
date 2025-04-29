@@ -12,8 +12,6 @@ dependencies:
   - python=3.9.21
   - setuptools=75.8.0
   - sqlite=3.45.3
-  - vc=14.42
-  - vs2015_runtime=14.42.34433
   - wheel=0.45.1
   - jupyter
   - geopandas==0.14.3
