@@ -18,11 +18,10 @@ Video link here...
 # Building and Running Code
 
 ```
-conda env create -f environment.yml
-conda activate myenv
+make setup
+make run
+make clean
 ```
-
-- Include Makefile maybe
 
 ---
 
