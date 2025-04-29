@@ -62,7 +62,7 @@ def plot_gender_dist(df, title):
        ax.pie(sizes, labels=labels, autopct='%1.1f%%',
               pctdistance=1.25, labeldistance=.6)
        plt.title(title)
-       plt.savefig(f'./figures/{title}.png')# only uncomment when you want to save figure
+       # plt.savefig(f'./figures/{title}.png')# only uncomment when you want to save figure
        plt.show()
 
 ### data analysis -- ethnic group
@@ -73,7 +73,7 @@ def plot_ethnic_grp_dist(df, title):
        ax.pie(sizes, labels=labels, autopct='%1.1f%%',
               pctdistance=1.25, labeldistance=.6)
        plt.title('Ethnic Group Percentages')
-       plt.savefig(f'./figures/{title}.png') # only uncomment when you want to save figure
+       # plt.savefig(f'./figures/{title}.png') # only uncomment when you want to save figure
        plt.show()
 
 ### data analysis -- annual rate and ethnic group (maybe add sex as color)
