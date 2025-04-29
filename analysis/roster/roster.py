@@ -72,7 +72,7 @@ def plot_ethnic_grp_dist(df, title):
        fig, ax = plt.subplots()
        ax.pie(sizes, labels=labels, autopct='%1.1f%%',
               pctdistance=1.25, labeldistance=.6)
-       plt.title('Ethnic Group Percentages')
+       plt.title(title)
        # plt.savefig(f'./figures/{title}.png') # only uncomment when you want to save figure
        plt.show()
 
