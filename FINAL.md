@@ -207,6 +207,143 @@ A closer look at individual-level data (2021) confirms this trend: BPD employees
 
 ## Further analysis: 
 
+### Independence Day Overtime Trends (2019–2022)
+
+**Figure1**:
+
+*Description*: This line chart tracks total overtime hours per month from January 2019 to mid-2022. It reveals high volatility in overtime hours, with multiple sharp spikes and dips, indicating fluctuating staffing demands or operational pressures.
+
+![image](https://github.com/user-attachments/assets/129e0346-dfe8-491e-9553-999e0f65e868)
+
+*Takeaways*: 
+- Frequent, Sharp Spikes:
+Peaks in mid-2019, mid-2020, late 2021, and early 2022 show overtime surges exceeding 20,000 hours/month. These likely correspond to major events. July often sees big spikes.
+
+- COVID-19 Impact (2020):
+A noticeable dip in overtime appears from March to mid-2020, possibly due to pandemic-related lockdowns or a reduction in public-facing duties.
+
+- Post-2020 Recovery & Rebound:
+Starting in late 2020, overtime hours begin rising again, with increased frequency of spikes in 2021 and 2022, suggesting either a return to regular operations or a growing reliance on overtime to meet staffing demands.
+
+**Figure2**:
+
+*Description*: This chart zooms in on daily overtime hours during the month of July, with data spanning from 2019 to 2022. It highlights extreme spikes in overtime on and around July 4th, a national holiday associated with heightened public activity and security needs.
+
+![image](https://github.com/user-attachments/assets/fccf310d-adc4-4469-9423-36d05093ee2e)
+
+*Takeaways*:
+
+- July 4th is a major overtime driver. Every year, the 4th of July consistently shows the highest daily overtime totals—reaching nearly 5,000 hours in 2019.
+
+- The day prior (July 3rd) also shows significant overtime spikes, especially in 2019 and 2020.
+
+- Holiday Patterns Are Predictable: This data shows a clear and predictable operational demand pattern. Despite this, overtime usage remains extremely high, suggesting that either staffing isn’t adjusted in advance, or the department depends heavily on overtime as part of its normal holiday coverage.
+
+**Figure3**:
+
+*Description*: This horizontal bar chart highlights the top 10 Boston Police Department units with the highest total overtime hours during the week of July 4th, a period shown previously to drive major OT surges.
+
+![image](https://github.com/user-attachments/assets/75ba235b-da26-4331-9598-0b2c09eeede4)
+
+*Takeaways*: 
+
+- District 04 and District 11 Are the Most Overtime-Heavy:
+These two districts alone logged over 3,000–3,800 hours each in just one week, making them standout overtime hotspots. This likely reflects their coverage of high-traffic areas (e.g., Back Bay, Dorchester) during holiday events.
+
+- Core Urban Districts Dominate the List:
+Units from Districts 01–06 and 13–14 all appear, suggesting a concentration of July 4th activity and response needs in densely populated or event-heavy neighborhoods.
+
+- Systemic Holiday Burden:
+The overtime isn’t just isolated to one or two teams; it spans a broad swath of the department, suggesting systemic dependence on overtime to meet July 4th demands.
+
+### Geographic Analysis: ZIP Codes with Highest-Risk Field Contacts
+
+**Data Processing**
+
+1. High-Risk Field Contacts
+- Parsed dates from the contact_date field.
+- Marked a contact as "high risk" if its key_situations included terms like “Gun,” “Drugs,” “Gang,” or “Shots Fired.”
+- Counted the number of high-risk contacts per ZIP code for mapping.
+
+2. Court Overtime Events:
+- Cleaned and standardized ASSIGNED_DESC to extract valid police districts (e.g., "C-6" → "C6").
+- Mapped numeric districts (e.g., "02") to lettered ones (e.g., "A15").
+- Summed total court-related OT hours per district.
+
+3. Map Construction (Folium):
+- Base map: Centered on Boston using folium.Map.
+- High-Risk Layer: A choropleth over ZIP codes shaded by the count of high-risk contacts, with tooltips showing exact values.
+- Court Overtime Layer: A choropleth over police districts shaded by total court overtime hours, with tooltips for each district.
+- Interactivity: Added hoverable GeoJSON tooltips and a layer control to toggle visibility between datasets.
+
+
+**Figure 1 and Figure 2**:
+
+*Description*: This horizontal bar chart identifies the top ZIP codes in Boston with the most high-risk police field contacts, providing a spatial view of where officers are most likely to encounter volatile or potentially dangerous interactions.
+
+![image](https://github.com/user-attachments/assets/c360b921-481d-460d-a197-1b656787a052)
+*Figure 1*
+
+![image](https://github.com/user-attachments/assets/b09d49fe-9c61-4489-8470-7292f3cfd6cd)
+*Figure 2*
+
+*Takeaways*: 
+- ZIP Code 02118 (South End/Roxbury) Leads in Risk:
+With nearly 800 high-risk contacts, this area tops the list—likely due to a combination of population density, policing focus, and socio-economic factors.
+
+- Hotspot ZIPs Are Clustered in Specific Regions:
+The top 5 ZIP codes (02118, 02119, 02121, 02124, 02125) are all located in or around Roxbury, Dorchester, and Mattapan—historically underserved areas with elevated public safety needs.
+
+- Patterns Overlap with Overtime & Unit Demand:
+These ZIPs align closely with areas served by Districts 02, 03, 04, and 11—units shown earlier to bear the heaviest overtime burdens during periods like July 4th week.
+
+- Disparities Are Sharp:
+While the top few ZIPs exceed 600–700 contacts, the bottom half of the list sees fewer than 200. This suggests disproportionate deployment and risk exposure, potentially raising staffing, training, and equity concerns.
+
+**Figure 3 and Figure 4**:
+
+*Description*:
+These two maps offer a powerful spatial synthesis: areas with the highest number of high-risk police contacts closely align with districts logging the most court-related overtime hours—most notably in District 4 (D4) and neighboring zones.
+
+![image](https://github.com/user-attachments/assets/7f1b2acb-1f73-4c74-af34-3d533a3cdeb3)
+*Figure 3*
+
+![image](https://github.com/user-attachments/assets/6bb6e9b6-2cf4-43b3-bea5-424588ec5b0e)
+*Figure 4*
+
+*Takeaways*: 
+- District 4 (D4) is a Critical Pressure Point: D4 logs the highest court overtime (14,179 hours).
+- It also overlaps significantly with ZIP codes like 02118, which top the list for high-risk field contacts (774 contacts). This dual burden implies both on-the-ground volatility and heavy post-arrest legal follow-through, such as testifying in court.
+- Hot Zones in Roxbury, Dorchester, Mattapan: These neighborhoods contain ZIPs like 02119, 02121, 02124, which also score high in risk contacts. Their coverage spans Districts 2, 3, and 11, which were previously identified as overtime-intensive.
+- Geographic Correlation Indicates Systemic Stress: The overlap between high-contact zones and court overtime suggests that officers in these areas face persistent workload demands, both during fieldwork and in legal proceedings. This may contribute to fatigue, burnout, and even financial inefficiency from repeated overtime obligations.
+
+### Final Recommendation:
+
+Based on the data presented across payroll trends, overtime patterns, and geographic risk analysis, several key recommendations emerge to help improve operational efficiency, reduce costs, and enhance equity in public safety staffing:
+
+**1. Strategically Reduce Overtime Reliance**
+
+- Reevaluate BPD staffing models, particularly in high-demand districts (e.g., D4, D11), to reduce dependency on overtime.
+
+- Implement advance scheduling and staffing adjustments for predictable high-demand events like July 4th to contain surges.
+
+- Consider hiring or reassigning officers for critical periods instead of backfilling with overtime.
+
+**2. Address High-Risk Zones with Targeted Resources**
+- ZIP codes such as 02118, 02119, and 02124 consistently rank high in field contacts and risk—indicating need for targeted community-based policing, violence prevention efforts, and cross-agency social services.
+
+- These areas should receive special attention in both resource allocation and officer support, including mental health tools and trauma-informed training.
+
+**3. Improve Court Scheduling and Representation**
+- Districts with high court overtime (e.g., D4) could benefit from better coordination between BPD and the court system.
+
+- Establish court liaisons or streamlined testimony protocols to reduce repeated officer appearances and minimize disruption to shift coverage.
+  
+**4. Monitor for Equity and Workforce Sustainability**
+- The stark concentration of overtime and high-risk encounters in specific districts raises concerns about officer burnout and inequitable community policing.
+
+- A city-wide review of how duties, risks, and resources are distributed can help ensure sustainable workloads and fair service delivery across all neighborhoods.
+
 ---
 
 # Final Project Report: Eric
