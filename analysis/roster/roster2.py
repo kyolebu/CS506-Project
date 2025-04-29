@@ -79,8 +79,12 @@ def preprocess_and_merge(n, roster_df, police_df):
         top_n,
         roster_df,
         on=['Last', 'First Name'],
-        how='left' # keep the top 100 even if roster_df is NA?
+        how='inner' # keep the top 100 even if roster_df is NA?
     )
+
+    # Drop duplicate matches
+    top_n_with_roster_df = top_n_with_roster_df.drop_duplicates(subset=['Last', 'First Name'])
+
     return top_n_with_roster_df
 
 def plot_income_ranking_with_demographics(df: pd.DataFrame, title: str = "Top 100 Earners by Income Ranking", filename: str = "top_100_income_ranking.html"):
@@ -205,6 +209,7 @@ if __name__ == "__main__":
 
         ### data analysis for top 100
         top_100_with_roster_df = preprocess_and_merge(100, roster_df, police_df)
+        print("length of top_100 with_roster_df:", len(top_100_with_roster_df))
 
         plot_gender_dist(top_100_with_roster_df, "top_100_gender_distribution") # from roster.py
         plot_ethnic_grp_dist(top_100_with_roster_df, "top_100_ethnic_group_distribution") # from roster.py
