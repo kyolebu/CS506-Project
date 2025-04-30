@@ -22,6 +22,8 @@ make run
 make clean
 ```
 
+To run ipynb files, after activating myenv, run Jupyter Notebook in the terminal to launch a server. Run the desired files. For example, run analysis/additional-data/high-risk-map.ipynb to recreate the interactive high-risk contact map.
+
 ---
 
 # Final Project Report: Wyatt
