@@ -19,6 +19,7 @@ https://youtu.be/UkE2dT8X3yQ
 ```
 make setup
 make run
+make test
 make clean
 ```
 
