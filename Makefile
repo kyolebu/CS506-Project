@@ -8,7 +8,7 @@ setup:
 run:
 	conda run -n $(ENV_NAME) python ./analysis/roster/roster.py
 	conda run -n $(ENV_NAME) python ./analysis/roster/roster2.py
-	# conda run -n $(ENV_NAME) python ./analysis/roster/decision_tree.py
+	conda run -n $(ENV_NAME) python ./analysis/roster/decision_tree.py
 
 # Remove the conda environment
 clean:
