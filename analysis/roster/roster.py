@@ -62,7 +62,7 @@ def plot_gender_dist(df, title):
        ax.pie(sizes, labels=labels, autopct='%1.1f%%',
               pctdistance=1.25, labeldistance=.6)
        plt.title(title)
-       plt.savefig(f'./figures/{title}.png')# only uncomment when you want to save figure
+       plt.savefig(f'./analysis/roster/figures/{title}.png')# only uncomment when you want to save figure
        plt.show()
 
 ### data analysis -- ethnic group
@@ -73,7 +73,7 @@ def plot_ethnic_grp_dist(df, title):
        ax.pie(sizes, labels=labels, autopct='%1.1f%%',
               pctdistance=1.25, labeldistance=.6)
        plt.title(title)
-       plt.savefig(f'./figures/{title}.png') # only uncomment when you want to save figure
+       plt.savefig(f'./analysis/roster/figures/{title}.png') # only uncomment when you want to save figure
        plt.show()
 
 ### data analysis -- annual rate and ethnic group (maybe add sex as color)
@@ -92,7 +92,7 @@ def plot_job_title_vs_annual_rt_vs_gender():
               plt.Line2D([0], [0], marker='o', color='w', markerfacecolor='red', markersize=10, label='Female', alpha=0.5)
        ])
        plt.tight_layout()  # Adjusts plot to fit labels
-       plt.savefig('./figures/job_title_vs_annual_rt_by_gender.png') # very interesting outlier
+       plt.savefig('./analysis/roster/figures/job_title_vs_annual_rt_by_gender.png') # very interesting outlier
        plt.show()
 
 def plot_job_title_vs_rates_combined():
@@ -123,7 +123,7 @@ def plot_job_title_vs_rates_combined():
        plt.legend(loc='upper right')
        plt.yscale('log')
        plt.tight_layout()  # Adjusts plot to fit labels
-       plt.savefig('./figures/job_title_vs_rates_combined.png')
+       plt.savefig('./analysis/roster/figures/job_title_vs_rates_combined.png')
        plt.show()
 
 def plot_job_title_vs_rates_seperate():
@@ -166,7 +166,7 @@ def plot_job_title_vs_rates_seperate():
               ])
        
        plt.tight_layout()
-       plt.savefig('./figures/job_title_vs_rates_seperate.png')
+       plt.savefig('./analysis/roster/figures/job_title_vs_rates_seperate.png')
        plt.show()
 
 ### data analysis -- print info about person with highest annual rt
