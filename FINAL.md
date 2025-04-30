@@ -4,8 +4,7 @@
 
 # Video Link
 
-Video link here...
-
+https://youtu.be/UkE2dT8X3yQ
 ---
 
 # Main Goal
