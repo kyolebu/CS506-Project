@@ -14,6 +14,12 @@ run:
 	conda run -n $(ENV_NAME) python ./analysis/earnings/earnings_intradepartment_ot_gross.py
 	conda run -n $(ENV_NAME) python ./analysis/earnings/earnings_intradepartment.py
 
+	conda run -n $(ENV_NAME) python ./analysis/overtime/linear-regression-per-employee.py
+	conda run -n $(ENV_NAME) python ./analysis/overtime/linear-regression.py
+	conda run -n $(ENV_NAME) python ./analysis/overtime/pdf.py
+	conda run -n $(ENV_NAME) python ./analysis/overtime/random-forest-regressor.py
+	conda run -n $(ENV_NAME) python ./analysis/overtime/overtime-ratio.py
+
 # Run tests to make sure figures were created
 test:
 	conda run -n $(ENV_NAME) python tests.py
